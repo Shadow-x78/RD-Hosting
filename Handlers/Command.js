@@ -1,28 +1,26 @@
-const fs = require("fs");
-const AsciiTable = require("ascii-table");
-const table = new AsciiTable();
-table.setHeading("Commands", "Stats").setBorder("|", "=", "0", "0");
+const { readdirSync } = require("fs");
+const ascii = require("ascii-table");
+let table = new ascii("Commands");
+table.setHeading("Command", " Load status");
 
 module.exports = (client) => {
-  fs.readdirSync("./Commands/").forEach((dir) => {
-    const files = fs
-      .readdirSync(`./Commands/${dir}/`)
-      .filter((file) => file.endsWith(".js"));
-    if (!files || files.length <= 0) console.log("Commands - 0");
-    files.forEach((file) => {
-      let command = require(`../Commands/${dir}/${file}`);
-      if (command) {
-        client.commands.set(command.name, command);
-        if (command.aliases && Array.isArray(command.aliases)) {
-          command.aliases.forEach((alias) => {
-            client.aliases.set(alias, command.name);
-          });
-        }
-        table.addRow(command.name, "✅");
+  readdirSync("./Commands/").forEach((dir) => {
+    const commands = readdirSync(`./Commands/${dir}/`).filter((file) =>
+      file.endsWith(".js")
+    );
+    for (let file of commands) {
+      let pull = require(`../Commands/${dir}/${file}`);
+      if (pull.name) {
+        client.commands.set(pull.name, pull);
+        table.addRow(file, "✔️ -> Command Loaded");
       } else {
-        table.addRow(file, "⛔");
+        table.addRow(file, "❌ -> Command Error");
+        continue;
       }
-    });
+      if (pull.aliases && Array.isArray(pull.aliases))
+        pull.aliases.forEach((alias) => client.aliases.set(alias, pull.name));
+    }
   });
   console.log(table.toString());
+  console.log("Command Handler is ready");
 };

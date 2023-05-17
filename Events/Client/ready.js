@@ -1,6 +1,11 @@
 const client = require("../../index");
+require("colors");
 
-client.once("ready", () => {
-  console.log(`Logged in as bot ${client.user.tag}`);
-  client.user.setStatus("online");
+module.exports = {
+  name: "ready",
+};
+
+client.once("ready", async () => {
+  console.log(`[READY] ${client.user.tag} is up and ready to go.`.bold);
+  console.log("----------------------------------------".white);
 });

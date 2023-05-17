@@ -1,20 +1,16 @@
-const {
-  Client,
-  GatewayIntentBits,
-  Partials,
-  Collection,
-} = require("discord.js");
-const fs = require("fs");
-require('dotenv').config()
+const { Client, Partials, Collection } = require("discord.js");
+require("colors");
+require("dotenv").config();
 
 const client = new Client({
   intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.GuildPresences,
-    GatewayIntentBits.GuildMessageReactions,
-    GatewayIntentBits.DirectMessages,
-    GatewayIntentBits.MessageContent,
+    "Guilds",
+    "GuildMessages",
+    "GuildPresences",
+    "GuildMessageReactions",
+    "DirectMessages",
+    "MessageContent",
+    "GuildVoiceStates",
   ],
   partials: [
     Partials.Channel,
@@ -26,15 +22,32 @@ const client = new Client({
 });
 
 client.commands = new Collection();
+client.events = new Collection();
+client.slash = new Collection();
 client.aliases = new Collection();
-client.slashCommands = new Collection();
-client.buttons = new Collection();
-client.prefix = process.env.Prefix;
 
 module.exports = client;
 
-fs.readdirSync("./Handlers").forEach((handler) => {
-  require(`./Handlers/${handler}`)(client);
+["Command", "Event", "Slash"].forEach((file) => {
+  require(`./Handlers/${file}`)(client);
 });
 
-client.login(process.env.Token);
+if (!process.env.Token) {
+  console.log(
+    "[WARN] Token for discord bot is required! put your token in config file"
+      .yellow.bold + "\n"
+  );
+  return process.exit();
+}
+
+client.login(process.env.Token).catch((err) => {
+  console.log(
+    "[CRUSH] Something went wrong while connecting to your bot" + "\n"
+  );
+  console.log("[CRUSH] Error from DiscordAPI :" + err);
+  process.exit();
+});
+
+process.on("unhandledRejection", async (err) => {
+  console.log(`[ANTI - CRUSH] Unhandled Rejection : ${err}`.red.bold);
+});

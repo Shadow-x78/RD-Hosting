@@ -1,23 +1,28 @@
-const { readdirSync } = require("fs");
-const ascii = require("ascii-table");
-let table = new ascii("Events");
-table.setHeading("Event", " Load status");
+const fs = require("fs");
+require("colors");
 
 module.exports = (client) => {
-  readdirSync("./Events/").forEach((dir) => {
-    const events = readdirSync(`./Events/${dir}/`).filter((file) =>
-      file.endsWith(".js")
-    );
-    for (let file of events) {
+  console.log("----------------------------------------".yellow);
+
+  fs.readdirSync("./Events/").forEach((dir) => {
+    const commands = fs
+      .readdirSync(`./Events/${dir}`)
+      .filter((file) => file.endsWith(".js"));
+    for (let file of commands) {
       let pull = require(`../Events/${dir}/${file}`);
       if (pull.name) {
         client.events.set(pull.name, pull);
-        table.addRow(file, "✔️ -> Event Loaded");
+        console.log(`[HANDLER - EVENTS] Loaded a file : ${pull.name}`.green);
       } else {
-        table.addRow(file, "❌ -> Event Error");
+        console.log("\n" + "----------------------------------------".red);
+        console.log(
+          `[HANDLER - EVENTS] Couldn't load the file ${file}, missing name or aliases`
+            .red.bold
+        );
+        console.log("----------------------------------------".red);
         continue;
       }
     }
   });
-  console.log("Event Handler is ready");
+  console.log("----------------------------------------".yellow);
 };

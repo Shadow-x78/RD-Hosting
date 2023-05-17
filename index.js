@@ -24,7 +24,7 @@ const client = new Client({
     Partials.Reaction,
   ],
 });
-
+;
 client.commands = new Collection();
 client.aliases = new Collection();
 client.slashCommands = new Collection();

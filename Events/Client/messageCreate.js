@@ -6,9 +6,10 @@ module.exports = {
 };
 
 client.on("messageCreate", async (message) => {
-  let prefix = process.env.Prefix;
-  if (message.channel.type !== 0) return;
+  let client = message.client;
   if (message.author.bot) return;
+  if (message.channel.type === "dm") return;
+  let prefix = process.env.Prefix;
   if (!message.content.startsWith(prefix)) return;
   if (!message.guild) return;
   if (!message.member)

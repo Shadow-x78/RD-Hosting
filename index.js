@@ -1,23 +1,39 @@
-const { Client, Partials, Collection } = require("discord.js");
+const {
+  Client,
+  Collection,
+  GatewayIntentBits,
+  Partials,
+} = require("discord.js");
 require("colors");
 require("dotenv").config();
 
 const client = new Client({
   intents: [
-    "Guilds",
-    "GuildMessages",
-    "GuildPresences",
-    "GuildMessageReactions",
-    "DirectMessages",
-    "MessageContent",
-    "GuildVoiceStates",
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildEmojisAndStickers,
+    GatewayIntentBits.GuildIntegrations,
+    GatewayIntentBits.GuildWebhooks,
+    GatewayIntentBits.GuildInvites,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildMessageReactions,
+    GatewayIntentBits.GuildMessageTyping,
+    GatewayIntentBits.DirectMessages,
+    GatewayIntentBits.DirectMessageReactions,
+    GatewayIntentBits.DirectMessageTyping,
+    GatewayIntentBits.MessageContent,
   ],
+  shards: "auto",
   partials: [
-    Partials.Channel,
     Partials.Message,
-    Partials.User,
+    Partials.Channel,
     Partials.GuildMember,
     Partials.Reaction,
+    Partials.GuildScheduledEvent,
+    Partials.User,
+    Partials.ThreadMember,
   ],
 });
 

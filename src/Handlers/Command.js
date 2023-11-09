@@ -4,25 +4,28 @@ require("colors");
 module.exports = (client) => {
   console.log("----------------------------------------".yellow);
 
-  fs.readdirSync("./Events/").forEach((dir) => {
+  fs.readdirSync("./src/Commands/").forEach((dir) => {
     const commands = fs
-      .readdirSync(`./Events/${dir}`)
+      .readdirSync(`./src/Commands/${dir}`)
       .filter((file) => file.endsWith(".js"));
     for (let file of commands) {
-      let pull = require(`../Events/${dir}/${file}`);
+      let pull = require(`../Commands/${dir}/${file}`);
       if (pull.name) {
-        client.events.set(pull.name, pull);
-        console.log(`[HANDLER - EVENTS] Loaded a file : ${pull.name}`.green);
+        client.commands.set(pull.name, pull);
+        console.log(`[HANDLER - COMMAND] Loaded a file : ${pull.name}`.green);
       } else {
         console.log("\n" + "----------------------------------------".red);
         console.log(
-          `[HANDLER - EVENTS] Couldn't load the file ${file}, missing name or aliases`
+          `[HANDLER - COMMAND] Couldn't load the file ${file}, missing module name value.`
             .red.bold
         );
         console.log("----------------------------------------".red);
         continue;
       }
+
+      if (pull.aliases && Array.isArray(pull.aliases)) {
+        pull.aliases.forEach((alias) => client.aliases.set(alias, pull.name));
+      }
     }
   });
-  console.log("----------------------------------------".yellow);
 };

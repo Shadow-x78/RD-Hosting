@@ -6,9 +6,9 @@ require("colors");
 module.exports = async () => {
   const slash = [];
 
-  fs.readdirSync("./SlashCommands/").forEach((dir) => {
+  fs.readdirSync("./src/SlashCommands/").forEach((dir) => {
     const commands = fs
-      .readdirSync(`./SlashCommands/${dir}`)
+      .readdirSync(`./src/SlashCommands/${dir}`)
       .filter((file) => file.endsWith(".js"));
     for (let file of commands) {
       let pull = require(`../SlashCommands/${dir}/${file}`);
@@ -29,7 +29,7 @@ module.exports = async () => {
 
   if (!process.env.Client_ID) {
     console.log(
-      "[CRUSH] You have to provide your client ID in config file".red + "\n"
+      "[CRUSH] You have to provide your Client ID in config file".red + "\n"
     );
     return process.exit();
   }

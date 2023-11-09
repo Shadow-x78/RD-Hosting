@@ -2,8 +2,7 @@ const { EmbedBuilder, Client, Message } = require("discord.js");
 
 module.exports = {
   name: "embed-rules",
-  aliases: [""],
-  description: "",
+  aliases: ["em-rules"],
   userPermissions: ["SendMessages"],
   botPermissions: ["ViewChannel"],
   ownerOnly: true,
@@ -86,6 +85,7 @@ module.exports = {
           }),
       ],
     });
+
     message.channel.send({
       embeds: [
         new EmbedBuilder()

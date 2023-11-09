@@ -2,8 +2,7 @@ const { EmbedBuilder, Client, Message } = require("discord.js");
 
 module.exports = {
   name: "embed-payment",
-  aliases: [""],
-  description: "",
+  aliases: ["em-payment"],
   userPermissions: ["SendMessages"],
   botPermissions: ["ViewChannel"],
   ownerOnly: true,
@@ -23,14 +22,6 @@ module.exports = {
           })
           .setTitle("Payment Methods")
           .addFields(
-            {
-              name: "**<:ProbotCredit:1113538694322847904> ProBot Credit**",
-
-              value: "\u200B",
-
-              inline: false,
-            },
-
             {
               name: "**<:Paypal:1105764684465983581> PayPal**",
 

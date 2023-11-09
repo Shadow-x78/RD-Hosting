@@ -1,9 +1,8 @@
 const { EmbedBuilder, Client, Message } = require("discord.js");
 
 module.exports = {
-  name: "embed-about",
-  aliases: [""],
-  description: "",
+  name: "embed-rdp",
+  aliases: ["em-rdp"],
   userPermissions: ["SendMessages"],
   botPermissions: ["ViewChannel"],
   ownerOnly: true,
@@ -18,24 +17,39 @@ module.exports = {
         new EmbedBuilder()
           .setColor("LuminousVividPink")
           .setAuthor({
-            name: "RD SHOP | About",
+            name: "RD SHOP | RDP",
             iconURL: client.user.displayAvatarURL(),
           })
-          .setTitle("〘 RD SHOP 〙We Offer Powerful Services At Cheap Prices")
+          .setTitle("<:Rdp:1105190009352495174> RDP Details :")
           .addFields(
             {
-              name: "**We Offer :**",
+              name: "**<:Cpu:1105153434891599992> Cpu**",
 
-              value:
-                "1- [ Cheap RDP ] \n2- [ Bot Hosting ] \n3- [ Game Servers ] \n\nWe Support IPv4 And IPv6",
+              value: "4 vCpu",
 
               inline: false,
             },
 
             {
-              name: "**Operating Systems RDP :**",
+              name: "**<:Ram:1113454229609271436> Ram**",
 
-              value: "1- [ Windows ] \n2- [ Linux ] \n3- [ Mac ]",
+              value: "8 GB",
+
+              inline: false,
+            },
+
+            {
+              name: "**<:Disk:1105153494559772705> Disk**",
+
+              value: "700 GB",
+
+              inline: false,
+            },
+
+            {
+              name: "**<:Graphics:1105153519209697311> Graphics Card**",
+
+              value: "<:Nothing:1105191477014958183> Nothing",
 
               inline: false,
             }
@@ -49,29 +63,45 @@ module.exports = {
           }),
       ],
     });
+
     message.channel.send({
       embeds: [
         new EmbedBuilder()
           .setColor("LuminousVividPink")
           .setAuthor({
-            name: "RD SHOP | About",
+            name: "RD SHOP | RDP",
             iconURL: client.user.displayAvatarURL(),
           })
-          .setTitle("〘 RD SHOP 〙نحن نقدم خدمات قوية بأسعار رخيصة")
+          .setTitle("💰 Price Details :")
           .addFields(
             {
-              name: "**نقدم :**",
+              name: "**<:Plan:1113707096593158245> RDP Duration**",
 
-              value:
-                "1- [ سطح مكتب بعيد رخيص ] \n2- [ استضافة البوتات ] \n3- [ سيرفرات ألعاب ] \n\nندعم IPv4 و IPv6",
+              value: "<:Week:1113710967273037877> 1 Week",
 
               inline: false,
             },
 
             {
-              name: "**أنظمة تشغيل سطح المكتب البعيد :**",
+              name: "**<:Paypal:1105764684465983581> PayPal**",
 
-              value: "1- [ Windows ] \n2- [ Linux ] \n3- [ Mac ]",
+              value: "3$",
+
+              inline: false,
+            },
+
+            {
+              name: "**<:Payeer:1105153290271981578> Payeer**",
+
+              value: "3$",
+
+              inline: false,
+            },
+
+            {
+              name: "**<:Bitcoin:1105153352985215040> Bitcoin**",
+
+              value: "0.00011 BTC",
 
               inline: false,
             }

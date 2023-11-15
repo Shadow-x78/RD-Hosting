@@ -20,7 +20,7 @@ module.exports = {
             name: "RD SHOP | RDP",
             iconURL: client.user.displayAvatarURL(),
           })
-          .setTitle("<:Rdp:1105190009352495174> RDP Details :")
+          .setTitle("RDP Details :")
           .addFields(
             {
               name: "**<:Cpu:1105153434891599992> Cpu**",
@@ -55,7 +55,7 @@ module.exports = {
             }
           )
           .setThumbnail(
-            "https://cdn.discordapp.com/icons/1104679214302642237/3667f32fba23aab056cddd7e14f51c1d.png?size=2048"
+            "https://cdn.discordapp.com/emojis/1105190009352495174.webp"
           )
           .setFooter({
             text: "RD SHOP",
@@ -72,16 +72,28 @@ module.exports = {
             name: "RD SHOP | RDP",
             iconURL: client.user.displayAvatarURL(),
           })
-          .setTitle("💰 Price Details :")
+          .setTitle("RDP Duration :")
+          .setDescription("<:Week:1113710967273037877> 1 Week")
+          .setThumbnail(
+            "https://cdn.discordapp.com/emojis/1174298718682480650.webp"
+          )
+          .setFooter({
+            text: "RD SHOP",
+            iconURL: client.user.displayAvatarURL(),
+          }),
+      ],
+    });
+
+    message.channel.send({
+      embeds: [
+        new EmbedBuilder()
+          .setColor("LuminousVividPink")
+          .setAuthor({
+            name: "RD SHOP | RDP",
+            iconURL: client.user.displayAvatarURL(),
+          })
+          .setTitle("Price Details :")
           .addFields(
-            {
-              name: "**<:Plan:1113707096593158245> RDP Duration**",
-
-              value: "<:Week:1113710967273037877> 1 Week",
-
-              inline: false,
-            },
-
             {
               name: "**<:Paypal:1105764684465983581> PayPal**",
 
@@ -107,7 +119,7 @@ module.exports = {
             }
           )
           .setThumbnail(
-            "https://cdn.discordapp.com/icons/1104679214302642237/3667f32fba23aab056cddd7e14f51c1d.png?size=2048"
+            "https://cdn.discordapp.com/emojis/1174299230152695878.webp"
           )
           .setFooter({
             text: "RD SHOP",

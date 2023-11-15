@@ -20,7 +20,7 @@ module.exports = {
             name: "RD SHOP | Payment",
             iconURL: client.user.displayAvatarURL(),
           })
-          .setTitle("Payment Methods")
+          .setTitle("Payment Methods :")
           .addFields(
             {
               name: "**<:Paypal:1105764684465983581> PayPal**",
@@ -44,10 +44,30 @@ module.exports = {
               value: "\u200B",
 
               inline: false,
-            },
+            }
+          )
+          .setThumbnail(
+            "https://cdn.discordapp.com/emojis/1174305037493747782.webp"
+          )
+          .setFooter({
+            text: "RD SHOP",
+            iconURL: client.user.displayAvatarURL(),
+          }),
+      ],
+    });
 
+    message.channel.send({
+      embeds: [
+        new EmbedBuilder()
+          .setColor("LuminousVividPink")
+          .setAuthor({
+            name: "RD SHOP | Payment",
+            iconURL: client.user.displayAvatarURL(),
+          })
+          .setTitle("طرق الدفع :")
+          .addFields(
             {
-              name: "**<:Litecoin:1105388168380948490> Litecoin**",
+              name: "**<:Paypal:1105764684465983581> بايبال**",
 
               value: "\u200B",
 
@@ -55,7 +75,7 @@ module.exports = {
             },
 
             {
-              name: "**<:Tether:1105388194733764698> Tether**",
+              name: "**<:Payeer:1105153290271981578> بايير**",
 
               value: "\u200B",
 
@@ -63,7 +83,7 @@ module.exports = {
             },
 
             {
-              name: "**<:Ethereum:1105388224135839814> Ethereum**",
+              name: "**<:Bitcoin:1105153352985215040> بيتكوين**",
 
               value: "\u200B",
 
@@ -71,7 +91,7 @@ module.exports = {
             }
           )
           .setThumbnail(
-            "https://cdn.discordapp.com/icons/1104679214302642237/3667f32fba23aab056cddd7e14f51c1d.png?size=2048"
+            "https://cdn.discordapp.com/emojis/1174305037493747782.webp"
           )
           .setFooter({
             text: "RD SHOP",

@@ -20,13 +20,13 @@ module.exports = {
             name: "RD SHOP | About",
             iconURL: client.user.displayAvatarURL(),
           })
-          .setTitle("〘 RD SHOP 〙We Offer Powerful Services At Cheap Prices")
+          .setTitle("RD SHOP \nWe Offer Powerful Services At Cheap Prices")
           .addFields(
             {
               name: "**We Offer :**",
 
               value:
-                "1- [ RDP ] \n2- [ Bot Hosting ] \n3- [ Game Servers ] \n\nWe Support IPv4",
+                "1- RDP \n2- Bot Hosting \n3- Game Servers \n\n**We Support IPv4**",
 
               inline: false,
             },
@@ -40,7 +40,7 @@ module.exports = {
             }
           )
           .setThumbnail(
-            "https://cdn.discordapp.com/icons/1104679214302642237/3667f32fba23aab056cddd7e14f51c1d.png?size=2048"
+            "https://cdn.discordapp.com/emojis/1174304224880902205.webp"
           )
           .setFooter({
             text: "RD SHOP",
@@ -56,13 +56,13 @@ module.exports = {
             name: "RD SHOP | About",
             iconURL: client.user.displayAvatarURL(),
           })
-          .setTitle("〘 RD SHOP 〙نحن نقدم خدمات قوية بأسعار رخيصة")
+          .setTitle("RD متجر \nنحن نقدم خدمات قوية بأسعار رخيصة")
           .addFields(
             {
               name: "**نقدم :**",
 
               value:
-                "1- [ سطح مكتب بعيد ] \n2- [ استضافة البوتات ] \n3- [ سيرفرات ألعاب ] \n\nندعم IPv4",
+                "1- سطح مكتب بعيد \n2- استضافة البوتات \n3- سيرفرات ألعاب \n\n**ندعم IPv4**",
 
               inline: false,
             },
@@ -76,7 +76,7 @@ module.exports = {
             }
           )
           .setThumbnail(
-            "https://cdn.discordapp.com/icons/1104679214302642237/3667f32fba23aab056cddd7e14f51c1d.png?size=2048"
+            "https://cdn.discordapp.com/emojis/1174304224880902205.webp"
           )
           .setFooter({
             text: "RD SHOP",

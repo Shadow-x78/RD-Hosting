@@ -20,7 +20,7 @@ module.exports = {
             name: "RD SHOP | Rules",
             iconURL: client.user.displayAvatarURL(),
           })
-          .setTitle("Rules For〘 RD SHOP 〙")
+          .setTitle("Rules For RD SHOP :")
           .addFields(
             {
               name: "**Rule 1 - Discord Terms of Service and Community Guidelines**",
@@ -77,7 +77,7 @@ module.exports = {
             }
           )
           .setThumbnail(
-            "https://cdn.discordapp.com/icons/1104679214302642237/3667f32fba23aab056cddd7e14f51c1d.png?size=2048"
+            "https://cdn.discordapp.com/emojis/1174300556324515911.webp"
           )
           .setFooter({
             text: "RD SHOP",
@@ -94,7 +94,7 @@ module.exports = {
             name: "RD SHOP | Rules",
             iconURL: client.user.displayAvatarURL(),
           })
-          .setTitle("القوانين الخاصة بخادم〘 RD SHOP 〙")
+          .setTitle("قوانين متجر RD :")
           .addFields(
             {
               name: "**القاعدة 1 - شروط خدمة Discord وإرشادات المجتمع**",
@@ -151,7 +151,7 @@ module.exports = {
             }
           )
           .setThumbnail(
-            "https://cdn.discordapp.com/icons/1104679214302642237/3667f32fba23aab056cddd7e14f51c1d.png?size=2048"
+            "https://cdn.discordapp.com/emojis/1174300556324515911.webp"
           )
           .setFooter({
             text: "RD SHOP",
